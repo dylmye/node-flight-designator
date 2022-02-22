@@ -1,8 +1,12 @@
 {
-  "name": "flight-designator",
-  "version": "3.1.1",
-  "description": "Parse and construct flight designators",
-  "author": "Jonas Hermsmeier <jhermsmeier@gmail.com> (https://jhermsmeier.de)",
+  "name": "@dylmye/flight-designator",
+  "version": "4.1.1",
+  "description": "Parse and construct flight designators - now with TypeScript",
+  "homepage": "https://github.com/dylmye/node-flight-designator",
+  "contributors": [
+    "Jonas Hermsmeier <jhermsmeier@gmail.com> (https://jhermsmeier.de)",
+    "Dylan Myers (https://dylmye.me)"
+  ],
   "license": "MIT",
   "keywords": [
     "flight",
@@ -16,18 +20,20 @@
   "main": "lib/flight-designator",
   "scripts": {
     "test": "mocha",
-    "doc": "jsdoc2md 'lib/**/*.js' --separators --param-list-format list > doc/api-reference.md"
+    "doc": "jsdoc2md 'lib/**/*.js' --separators --param-list-format list > doc/api-reference.md",
+    "build:dts": "tsc -p tsconfig.json"
   },
   "devDependencies": {
-    "jsdoc-to-markdown": "^4.0.1",
-    "mocha": "^6.1.4"
+    "@tsconfig/node12": "^1.0.9",
+    "jsdoc-to-markdown": "^6.0.1",
+    "mocha": "^8.4.0",
+    "typescript": "^4.5.5"
   },
-  "homepage": "https://github.com/jhermsmeier/node-flight-designator",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jhermsmeier/node-flight-designator.git"
+  "engines": {
+    "node": ">10.12.0"
   },
+  "repository": "github:dylmye/node-flight-designator",
   "bugs": {
-    "url": "https://github.com/jhermsmeier/node-flight-designator/issues"
+    "url": "https://github.com/dylmye/node-flight-designator/issues"
   }
 }
