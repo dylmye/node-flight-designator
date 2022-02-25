@@ -1,28 +1,29 @@
 # Flight Designator
-[![npm](https://img.shields.io/npm/v/flight-designator.svg?style=flat-square)](https://npmjs.com/package/flight-designator)
-[![npm license](https://img.shields.io/npm/l/flight-designator.svg?style=flat-square)](https://npmjs.com/package/flight-designator)
-[![npm downloads](https://img.shields.io/npm/dm/flight-designator.svg?style=flat-square)](https://npmjs.com/package/flight-designator)
-[![build status](https://img.shields.io/travis/jhermsmeier/node-flight-designator.svg?style=flat-square)](https://travis-ci.org/jhermsmeier/node-flight-designator)
+[![npm](https://img.shields.io/npm/v/@dylmye/flight-designator.svg?style=flat-square)](https://npmjs.com/package/flight-designator)
+[![npm license](https://img.shields.io/npm/l/@dylmye/flight-designator.svg?style=flat-square)](https://npmjs.com/package/flight-designator)
+[![npm downloads](https://img.shields.io/npm/dm/@dylmye/flight-designator.svg?style=flat-square)](https://npmjs.com/package/flight-designator)
+[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fdylmye%2Fnode-flight-designator%2Fbadge%3Fref%3Dmaster&style=flat-square)](https://actions-badge.atrox.dev/dylmye/node-flight-designator/goto?ref=master)
 
-## Install via [npm](https://npmjs.com)
+A fork of Jonas Hermsmeier's Flight Designator validation, converted to TypeScript and ES6 classes. Requires Node 10 or above.
+
+## Install via [npm](https://npmjs.com) or [yarn](https://yarnpkg.com)
 
 ```sh
-$ npm install --save flight-designator
+$ npm install --save @dylmye/flight-designator
+$ yarn add @dylmye/flight-designator
 ```
 
 ## Usage
 
-For API Documentation, see [doc/api-reference.md](https://github.com/jhermsmeier/node-flight-designator/blob/master/doc/api-reference.md)
-
-```js
-var FlightDesignator = require( 'flight-designator' )
+```ts
+import FlightDesignator from "@dylmye/flight-designator";
 ```
 
-##### Parse
+## Parse
 
-```js
-FlightDesignator.parse( 'U24511A' ) // OR
-new FlightDesignator().parse( 'U24511A' )
+```ts
+FlightDesignator.parse('U24511A') // OR
+new FlightDesignator().parse('U24511A')
 > FlightDesignator {
   airlineCode: 'U2',
   flightNumber: 4511,
@@ -32,26 +33,26 @@ new FlightDesignator().parse( 'U24511A' )
 
 ##### Validate
 
-```js
-FlightDesignator.isValid( 'KLM0180' )
+```ts
+FlightDesignator.isValid('KLM0180')
 > true
 ```
 
-```js
-FlightDesignator.isValidAirlineCode( 'KLM' )
+```ts
+FlightDesignator.isValidAirlineCode('KLM')
 > true
 ```
 
-```js
-FlightDesignator.isValidFlightNumber( '0180' )
+```ts
+FlightDesignator.isValidFlightNumber('0180')
 > true
 ```
 
 ##### Construct & validate instance
 
-```js
+```ts
 // Construct a flight designator
-var flight = new FlightDesignator( 'KLM', '645' )
+const flight = new FlightDesignator('KLM', '645')
 > FlightDesignator {
   airlineCode: 'KLM',
   flightNumber: 645,
@@ -64,27 +65,27 @@ flight.isValid()
 
 ##### Format flight designators
 
-```js
-FlightDesignator.format( 'u2 0350A' )
+```ts
+FlightDesignator.format('u2 0350A')
 // Compact
 > 'U2350A'
 // With spaces
-FlightDesignator.format( 'u2 0350A', true )
+FlightDesignator.format('u2 0350A', true)
 > 'U2 350 A'
 // With zero-padded flight number
-FlightDesignator.format( 'u2350A', true, true )
+FlightDesignator.format('u2350A', true, true)
 > 'U2 0350 A'
 ```
 
-```js
-var flight = new FlightDesignator( 'LH', 254, 'X' )
+```ts
+var flight = new FlightDesignator('LH', 254, 'X')
 // Compact
 flight.toString()
 > 'LH254X'
 // With spaces
-flight.toString( true )
+flight.toString(true)
 > 'LH 254 X'
 // With zero-padded flight number
-flight.toString( true, true )
+flight.toString(true, true)
 > 'LH 0254 X'
 ```
