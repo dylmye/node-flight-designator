@@ -3,6 +3,7 @@
 [![npm license](https://img.shields.io/npm/l/@dylmye/flight-designator.svg?style=flat-square)](https://npmjs.com/package/flight-designator)
 [![npm downloads](https://img.shields.io/npm/dm/@dylmye/flight-designator.svg?style=flat-square)](https://npmjs.com/package/flight-designator)
 [![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fdylmye%2Fnode-flight-designator%2Fbadge%3Fref%3Dmaster&style=flat-square)](https://actions-badge.atrox.dev/dylmye/node-flight-designator/goto?ref=master)
+[![snyk](https://img.shields.io/snyk/vulnerabilities/github/dylmye/node-flight-designator?style=flat-square)](https://snyk.io/test/github/dylmye/node-flight-designator)
 
 A fork of Jonas Hermsmeier's Flight Designator validation, converted to TypeScript and ES6 classes. Requires Node 10 or above.
 
